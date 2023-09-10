@@ -13,7 +13,16 @@ jobs:
         runs-on: ubuntu-latest
         needs: startup
         steps:
-            - run: gh pr comment $PR_URL --body "Thanks for PR we will reivew"
+            - name: Comment on PR
+              run: gh pr comment $PR_URL --body "Thanks for PR we will reivew"
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 PR_URL: ${{ github.event.pull_request.html_url }}
+            - name: Checkout Code
+              uses: actions/checkout@v2
+              with:
+                fetch-depth: 0
+            - name: Check for Button
+              run: ./.github/scripts/check.sh
+              env:
+                FILE: ./src/components.Button.js
