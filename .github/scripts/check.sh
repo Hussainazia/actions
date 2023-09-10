@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Check the file exisit"
+echo "Check the file exist"
 if test -f $FILE
 then
     echo "File found $FILE"
