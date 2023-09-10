@@ -25,4 +25,4 @@ jobs:
             - name: Check for Button
               run: ./.github/scripts/check.sh
               env:
-                FILE: ./src/components.Button.js
+                FILE: ./src/components/Button.js
